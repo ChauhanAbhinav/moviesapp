@@ -1,17 +1,24 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+<header>
+  <nav>
+    <router-link to="/">
+    <h2>Movies Couch</h2>
+    </router-link>
+  </nav>
+</header>
+<router-view/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import env from '@/env.js';
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+export default ({
+  setup() {
+    if(!env.apikey) {
+    alert("Please add your API Key in environments")
+    }
   }
-}
+})
 </script>
 
 <style>
@@ -21,6 +28,35 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  background-color: #2C3D4E;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1);
+
+}
+h1 {
+  color: #000;
+  font-size: 28px;
+}
+  h3 {
+  color: #2c3e50;;
+  font-size: 28px;
+}
+span {
+  color: #42B883;
+}
+nav {
+  padding: 30px;
+}
+nav a {
+  font-weight: bold;
+  color: #42b983;
+}
+nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>

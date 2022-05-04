@@ -1,5 +1,8 @@
 # moviesapp
 
+Add Your API key in env.js file
+Create API key https://www.themoviedb.org/login
+
 ## Project setup
 ```
 npm install
