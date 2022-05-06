@@ -1,12 +1,28 @@
 <template>
-  <div class="moviebox">
-    <img :src="'https://image.tmdb.org/t/p/w500' + movie.poster_path" alt="Movie Poster" />
-  </div>
-  <div class="moviebox movie-detail">
-    <h2>{{movie.title}}</h2>
-    <p>{{ movie.release_date }}</p>
-    <p>{{ movie.overview }}</p>
-  </div>
+      <a-row :gutter="[18, 18]" type="flex" class="movie-detail">
+      <a-col :md="6"  class="moviebox">
+          <a-card>
+            <template #cover>
+              <img :src="'https://image.tmdb.org/t/p/w342' + movie.poster_path" alt="Movie Poster" style="width: 100%;" />
+            </template>
+          </a-card>
+      </a-col>
+      <a-col :md="16"  class="moviebox">
+          <a-card >
+            <a-card-meta >
+              <template #description>
+                <div>
+                  <h2>{{movie.title}}</h2>
+                  <b>{{ movie.release_date }}</b>
+                  <br><br>
+                  <p>{{ movie.overview }}</p>
+              </div>
+              </template>
+            </a-card-meta>
+          </a-card>
+      </a-col>
+    </a-row>
+
 </template>
 
 <script>
@@ -34,30 +50,15 @@ export default {
 </script>
 
 <style>
-  p {
-    color: #000;
-    font-size: 18px;
-    line-height: 1.4;
-  }
-    .featured-img {
-    display: block;
-    max-width: 200px;
-    margin-bottom: 16px;
-  }
-    h2 {
-    color: #42b983;;
-    font-size: 28px;
-    font-weight: 600;
-    margin-bottom: 16px;
-  }
+b, p {
+  color: #000;
+}
 .movie-detail {
   padding: 16px;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 .moviebox {
-  margin-top: 20px;
-  width: 40%;
-  display: inline-block;
-  line-height: normal;
-  vertical-align: middle;
+text-align: center
 }
 </style>
